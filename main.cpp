@@ -7,7 +7,7 @@ int main()
 
     do
     {
-        cout << "\t\t A SIMPLE NOTEPAD " << endl;
+        cout << "\t\t==== A SIMPLE NOTEPAD ====" << endl;
         cout << "\t\t1. Write the file" << endl;
         cout << "\t\t2. Read the file" << endl;
         cout << "\t\t3. Append the file" << endl;
