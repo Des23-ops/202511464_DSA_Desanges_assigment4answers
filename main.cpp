@@ -12,36 +12,50 @@ int main()
         cout << "\t\t2. Read the file" << endl;
         cout << "\t\t3. Append the file" << endl;
         cout << "\t\t 4. Exit" << endl;
-
-        cout << "Enter choice: ";
+        cout << "Enter your choice: ";
         cin >> choice;
 
-        switch(choice){
-case 1:
-                cout << "Enter your file name: ";
+        switch (choice){
+            case 1:
+
+                cout << "Enter file name: ";
                 cin >> filename;
-                writeFile(filename);
+
+                writeNote(filename);
+
                 break;
-case 2:
-                cout << "Enter your file name: ";
+
+            case 2:
+
+                cout << "Enter file name: ";
                 cin >> filename;
-                readFile(filename);
+
+                readNote(filename);
+
                 break;
-case 3:
-                cout << "Enter your file name: ";
+
+            case 3:
+
+                cout << "Enter file name: ";
                 cin >> filename;
-                appendFile(filename);
+
+                updateNote(filename);
+
                 break;
-case 4:
-                cout << "byeee!" << endl;
+
+            case 4:
+
+                cout << "Program closed." << endl;
+
                 break;
 
             default:
-                cout << "Invalid choice." << endl;
-        }
 
-    } 
-while(choice != 4);
+                cout << "Invalid choice. Try again." << endl;
+                    }
+
+    }
+    while (choice != 4);
 
     return 0;
 }
