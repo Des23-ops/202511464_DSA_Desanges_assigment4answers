@@ -7,8 +7,8 @@
 
 using namespace std;
 
-void writeFile(string filename);
-void readFile(string filename);
-void appendFile(string filename);
+void writeNote(string filename);
+void readNote(string filename);
+void updateNote(string filename);
 
 #endif
