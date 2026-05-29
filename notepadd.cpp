@@ -1,67 +1,94 @@
 #include "notepad.h"
 
-void writeFile(string filename)
+void writeNote(string filename)
 {
     ofstream file(filename);
 
-    string text;
-    cout << "Write the message you displayed in your notepad file" << endl;
-    cout << "Type END to stop writing." << endl;
-    cin.ignore();
-    while (true){
-        getline(cin, text);
-        if (text == "END"){
-            break;
-}
- file << text << endl;
+    if (file.is_open())
+    {
+        string text;
+
+        cout << "\nWrite a message you want displayed in your notepad file" << endl;
+        cout << "Type Stop when finished." << endl;
+
+        cin.ignore();
+
+        while (true)
+        {
+            getline(cin, text);
+
+            if (text == "END")
+            {
+                break;
+            }
+
+            file << text << endl;
+        }
+
+        file.close();
+
+        cout << "Note saved successfully." << endl;
     }
-file.close();
-cout << "File saved successfully." << endl;
+    else
+    {
+        cout << "Unable to create file." << endl;
+    }
 }
 
-void readFile(string filename){
+void readNote(string filename)
+{
     ifstream file(filename);
-    string line;
-if (!file)
+
+    if (file.is_open())
+    {
+        string line;
+
+        cout << "\n===== YOUR NOTES =====\n" << endl;
+
+        while (getline(file, line))
+        {
+            cout << line << endl;
+        }
+
+        file.close();
+    }
+    else
     {
         cout << "File not found." << endl;
-        return;
     }
-
-    cout << "\nFile Contents\n" << endl;
-
-    while (getline(file, line))
-    {
-        cout << line << endl;
-    }
-
-    file.close();
 }
 
-void appendFile(string filename)
+void updateNote(string filename)
 {
     ofstream file(filename, ios::app);
 
-    string text;
-
-    cout << "\nEnter new text." << endl;
-    cout << "Type END to stop." << endl;
-
-    cin.ignore();
-
-    while (true)
+    if (file.is_open())
     {
-        getline(cin, text);
+        string text;
 
-        if (text == "END")
+        cout << "Enter your message to add" << endl;
+        cout << "Type END when finished." << endl;
+
+        cin.ignore();
+
+        while (true)
         {
-            break;
+            getline(cin, text);
+
+            if (text == "Stop")
+            {
+                break;
+            }
+
+            file << text << endl;
         }
 
-        file << text << endl;
+        file.close();
+
+        cout << "Your text was added successfully." << endl;
     }
-
-    file.close();
-
-    cout << "Text added successfully." << endl;
+    else
+    {
+        cout << "Unable to open the file." << endl;
+    }
 }
